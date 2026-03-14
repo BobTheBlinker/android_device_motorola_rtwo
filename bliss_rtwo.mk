@@ -16,11 +16,11 @@ $(call inherit-product, vendor/bliss/config/common_full_phone.mk)
 # Maintainer Overlay
 PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_NAME := bliss_rtwo
+PRODUCT_NAME := lineage_rtwo
 PRODUCT_DEVICE := rtwo
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := motorola edge+ 2023
+PRODUCT_MODEL := motorola edge 40 pro
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
