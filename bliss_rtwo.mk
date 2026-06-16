@@ -16,8 +16,8 @@ $(call inherit-product, vendor/bliss/config/common_full_phone.mk)
 # Maintainer Overlay
 PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# GMS Package Variant (pico, nano, micro, full, stock)
-TARGET_GAPPS_VARIANT := pico
+# GMS Package Variant (pico, nano, & full)
+TARGET_GAPPS_VARIANT := full
 
 PRODUCT_NAME := bliss_rtwo
 PRODUCT_DEVICE := rtwo

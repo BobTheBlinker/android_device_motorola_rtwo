@@ -19,7 +19,11 @@ TARGET_KERNEL_CONFIG += \
 	vendor/ext_config/moto-kalama-rtwo.config
 
 # Partitions
-ifneq ($(WITH_GMS),true)
+ifeq ($(WITH_GMS),)
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 450000000
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 0
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 0
+else
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 3318226944
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 873680896
 BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 916299776
@@ -44,3 +48,9 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(BOARD_AVB_ROLLBACK_INDEX)
 
 # inherit from the proprietary version
 include vendor/motorola/rtwo/BoardConfigVendor.mk
+
+# A-Team Private Signing - Added by signKEYS
+# We use ?= to bypass readonly restrictions in some trees
+PRODUCT_DEFAULT_DEV_CERTIFICATE ?= vendor/ateam/releasekey
+PRODUCT_OTA_PUBLIC_KEYS ?= vendor/ateam/releasekey.x509.pem
+PRODUCT_EXTRA_RECOVERY_KEYS ?= vendor/ateam/releasekey
