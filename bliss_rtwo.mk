@@ -13,6 +13,9 @@ $(call inherit-product, device/motorola/rtwo/device.mk)
 # Inherit some common BlissROM stuff.
 $(call inherit-product, vendor/bliss/config/common_full_phone.mk)
 
+# Maintainer overlay
+PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 PRODUCT_NAME := bliss_rtwo
 PRODUCT_DEVICE := rtwo
 PRODUCT_MANUFACTURER := motorola
